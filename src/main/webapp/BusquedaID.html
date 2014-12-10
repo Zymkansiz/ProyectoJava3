@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Proyecto</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Busqueda por ID</div>
+        <p>Para visualizar el tipo de mueble, presiona el boton.</p>
+        
+        <input class="form-control" id="bid" placeholder="Da un id">
+        <button class="btn-success" id="cargarMueble"> Enviar </button>
+        <div id="resultadoMueble"></div>
+        
+        <script>
+            $(document).ready(function(){
+                $("#cargarMueble").click(function(){
+                    var miId=$("#bid").val();
+                    $.getJSON("http://localhost:8090/ProyectoFinal/busqueda/" + miId, function(datos){
+                        $("#resultadoMueble").html("Elemento seleccionado " + datos.mueble+ ", el mueble es: " + datos.mueble);
+                    });
+                });
+            });
+          
+           
+        </script>
+        
+    </body>
+</html>

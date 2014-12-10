@@ -7,10 +7,7 @@ package com.ieah.controller;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-/**
- *
- * @author T107
- */
+
 public class WebAp extends AbstractAnnotationConfigDispatcherServletInitializer { 
 
  

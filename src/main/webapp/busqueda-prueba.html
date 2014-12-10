@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>-----------------------</title>
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Ejemplo de uso de arreglos json con tablas mysql relacionadas</h2>
+        <p>Busqueda de muebles por relación</p>
+        <p>Se buscara el mueble con relacion a su nombre y tipo.</p>
+        <button class="btn btn-success" id="cargarTipo">Buscar tipo.</button>
+        <div id="resultado-tipo"></div>
+        <script>
+            $(document).ready(function(){
+                $("#cargarTipo").click(function(){
+                    $.getJSON("http://localhost:8084/ProyectoFinal/servicios/tipo", function(datos){
+                       $("#resultado-tipo").html("El tipo del mueble\n\
+              "+datos.n[0].u.mueble +" es "+datos.tipo[0].ti);
+
+                        
+                    });
+                   
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Proyecto Java</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Busqueda por envio</div>
+        
+        <p>Presiona para buscar lo deseado</p>
+        
+        <button class="btn btn-success" id="cargarEnvio">Enviar</button>
+        <div id="resultadoEnvio"></div>
+        
+        <script>
+            $(document).ready(function(){
+                $("#cargarEnvio").click(function(){
+                    $.getJSON("http://localhost:8090/ProyectoFinal/servicios/envio", function(datos){
+                        $("#resultadoEnvio").html("El envio del tipo " + datos.tipo[0].u.nombre + " de mueble es de "
+                                + datos.envio[0].u.envio)
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
